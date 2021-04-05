@@ -116,23 +116,23 @@ console.log("findAverageScore function");
 console.log(findAverageScore(submissions));
 
 console.log("filterPassing function");
-function filterPassing (array) {
+function filterPassing(array) {
     let score = submissions.score;
-    const passingScores = array.filter(function(score) {
-        return array.score >= 60
-    })   
-    return passingScores;
+    const passing=array.filter(function(score) {
+    return score.score >= 60;
+})
+return passing;
 }
-
+filterPassing(submissions);
 console.log(filterPassing(submissions));
 
 console.log("filter90AndAbove function")
-function filter90AndAbove (array) {
+function filter90AndAbove(array) {
     let score = submissions.score;
-    const scoresAbove90 = submissions.filter(function(score){
-        return submissions.score >= 90;
+    const over90=array.filter(function(score) {
+    return score.score >=90;      
     })
-    return scoresAbove90;
-}
-
+    return over90;
+    }
+   filter90AndAbove(submissions);
 console.log(filter90AndAbove(submissions));

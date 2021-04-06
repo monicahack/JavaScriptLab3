@@ -48,7 +48,7 @@ function addSubmission (array, newName, newScore, newDate) {
 
 console.log("deleteSubmissionByIndex function");
 function deleteSubmissionByIndex (array, index) {
-    array.splice(2, 1);
+    array.splice(index, 1); //index value is dynamic and taken is as a parameter
 }
 
 deleteSubmissionByIndex(submissions, 2);
@@ -88,7 +88,7 @@ console.log(findSubmissionByName(submissions, "Joe"))
 
 console.log("findLowestScore function");
 function findLowestScore (array) {
-    let score = submissions.score;
+    let score = array.score; //should only use the array parameter
     let lowestScore = array[0];
     array.forEach(element => {
         if (element.score < lowestScore.score) {
@@ -102,26 +102,23 @@ console.log(findLowestScore(submissions));
 
 console.log("findAverageScore function");
     function findAverageScore (array) {
-        let score = submissions.score;
-        for (const submission of submissions) {
+        let score = array.score;
+       //dont need to reference original array, just parameter one
             let sum = 0;
             for(let i =0; i < array.length; i++) {
                 sum += array[i].score;
             }
             let averageScore = sum / array.length;
             return averageScore;
-            }
+      
     }
 
 console.log(findAverageScore(submissions));
 
 console.log("filterPassing function");
 function filterPassing(array) {
-    let score = submissions.score;
-    const passing=array.filter(function(score) {
-    return score.score >= 60;
-})
-return passing;
+   let passing = array.filter((item) => item.passed);
+  return passing;
 }
 filterPassing(submissions);
 console.log(filterPassing(submissions));
